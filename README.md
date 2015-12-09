@@ -203,6 +203,7 @@ $ heroku pg:reset DATABASE_URL --app [YOUR APP NAME]
 1. Setup the heroku service by giving it your apps name
 
 
+
   
    
 

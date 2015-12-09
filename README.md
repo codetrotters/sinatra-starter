@@ -91,6 +91,122 @@ computer
 [http://localhost:8082/teampostgresql](http://localhost:8082/teampostgresql)
 
 
+##Publishing to Heroku
+
+1. Create a Heroku Account
+
+   [http://heroku.com](http://heroku.com)
+   
+1. Create a new heroku app
+
+1. Install the heroku toolbelt on your machine
+
+   [https://toolbelt.heroku.com/](https://toolbelt.heroku.com/)
+   
+1. Go to your repository from the command line and type
+
+   ```
+   $ heroku login
+   ```
+   
+1. Make your repo heroku aware inside your repository
+
+   ```
+   $ heroku git:remote -a [YOUR APP NAME HERE]
+   ```   
+     
+1. Commit your changes and push to heroku
+
+   ```
+   $ git add -A
+   $ git commit -m "Your commit message"
+   $ git push heroku master
+   ```
+   
+1. View your app on
+
+   ```
+   http://YOURAPPNAME.herokuapp.com
+   ```
+   
+##Moving your data to heroku
+
+
+###Prerequisites
+
+You need **postgresql** command line tools to be able to run this commands
+on MacOS you can use Homebrew
+	
+1. Install XCode from the AppStore
+	
+	[https://itunes.apple.com/en/app/xcode/id497799835?mt=12](https://itunes.apple.com/en/app/xcode/id497799835?mt=12)
+		
+2. Install XCode command line tools
+	
+	```
+	$ xcode-select --install
+	```
+	
+3. Install HomeBrew
+	
+	You can follow the instructions here
+	[https://itunes.apple.com/en/app/xcode/id497799835?mt=12](https://itunes.apple.com/en/app/xcode/id497799835?mt=12)
+	
+	or run this command
+		
+	```
+	$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	```
+
+4. Install postgresql
+	
+	```
+	$ brew install postgresql
+	```
+		
+5. Link postgresql to get access to the command line tools
+	   
+	```
+	$ brew link postgresql
+	```
+
+###Migrating your data
+
+To move your local database to heroku you need to run the following command
+
+```
+$ heroku pg:push "postgres://postgres:postgres@localhost/myapplication" DATABASE_URL --app [YOUR APP NAME]
+```
+
+You can only do this if your remote database is empty, to resend
+your database you have to empty it with
+
+```
+$ heroku pg:reset DATABASE_URL --app [YOUR APP NAME]
+```
+   
+##Adding a Domain to your app
+   
+ 
+1. Search for the domain you want on
+
+   ```
+   https://iwantmyname.com/  
+   ```
+
+1. Buy the domain
+
+1. From your IWantMyName.com dashboard find your name and click on 
+   install a new service, find heroku from the list of
+   services
+   
+1. Setup the heroku service by giving it your apps name
+
+
+  
+   
+
+
 
 
 

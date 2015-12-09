@@ -25,6 +25,11 @@ class MyApplication < Sinatra::Base
   set :root,      File.dirname(__FILE__)
   set :sessions,  true
 
+  #Register Extensions
+  register Sinatra::Auth
+  register Sinatra::Flash
+  register WillPaginate::Sinatra
+
   #Configure Development
   configure :development do
     require 'pry'
